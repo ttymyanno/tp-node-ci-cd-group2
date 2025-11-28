@@ -1,0 +1,24 @@
+{
+  "name": "tp-node-ci-cd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttymyanno/tp-node-ci-cd-group2.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ttymyanno/tp-node-ci-cd-group2/issues"
+  },
+  "homepage": "https://github.com/ttymyanno/tp-node-ci-cd-group2#readme"
+}
