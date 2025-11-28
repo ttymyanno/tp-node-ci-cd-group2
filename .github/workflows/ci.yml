@@ -2,9 +2,9 @@ name: CI/CD Node.js Avancé  # Nom du workflow
 
 on:
   push:
-    branches: ["*"]         # Déclenche sur tous les push
+    branches: ["*"]         # Déclenche pour tous les push
   pull_request:
-    branches: ["*"]         # Déclenche sur toutes les PR
+    branches: ["*"]         # Déclenche pour toutes les PR
 
 jobs:
 
@@ -19,12 +19,11 @@ jobs:
         run: npm ci
 
       - name: Run linter
-        run: npm run lint   # Doit être défini dans package.json
-        
+        run: npm run lint    # Commande de lint (echo ou eslint)
 
   test:
     name: Tests unitaires
-    needs: lint             # attend que lint réussisse
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -34,8 +33,7 @@ jobs:
         run: npm ci
 
       - name: Run unit tests
-        run: npm test        # Jest ou autre framework
-
+        run: npm test
 
   build:
     name: Build (optionnel)
@@ -44,12 +42,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci
-      - run: npm run build  # Commande définie dans package.json
-
+      - run: npm run build   # Commande de build (echo ou vrai build)
 
   deploy:
     name: Déploiement
-    needs: [lint, test, build]   # doit attendre tous les autres jobs
+    needs: [lint, test, build]
     runs-on: ubuntu-latest
 
     # Déployer uniquement depuis main ou release/*
@@ -62,5 +59,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./   # Dossier contenant index.html
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # jeton automatique
+          publish_dir: ./                             # dossier à publier
