@@ -1,5 +1,5 @@
-const addition = require ( './index' ) ;
+const multiplication = require ( './index' ) ;
 
-test ('addition de 1 + 2 = 3 ', () => {
-expect ( addition (1 , 2) ). toBe (3) ;
+test ('multiplication de 2 * 3 = 6 ', () => {
+expect ( multiplication (2 , 3) ). toBe (6) ;
 }) ;
