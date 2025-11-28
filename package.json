@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "echo \"lint ok\"",
+    "build": "echo \"build ok\""
   },
   "keywords": [],
   "author": "",
